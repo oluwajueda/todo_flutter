@@ -17,4 +17,10 @@ class FirebaseApi {
 
     await docTodo.delete();
   }
+
+  static Future updateTodo(Todo todo) async {
+    final docTodo = FirebaseFirestore.instance.collection('todo').doc(todo.id);
+
+    await docTodo.update(todo.toJson());
+  }
 }
